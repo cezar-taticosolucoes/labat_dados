@@ -5,6 +5,7 @@ import time
 import json
 import os
 from datetime import datetime
+import json
 
 # Dados da API Sienge
 url_api_base = 'https://api.sienge.com.br/labat/public/api/bulk-data/v1/building/resources'

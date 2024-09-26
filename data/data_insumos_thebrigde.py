@@ -7,7 +7,7 @@ import os
 # Definir o caminho correto para o arquivo JSON na pasta 'files'
 # Obter o caminho absoluto do diretório raiz do repositório (AIKON_BANCO_DADOS)
 repo_dir = os.path.dirname(os.path.abspath(''))  # 'file' removido, usará o diretório de execução atual
-file_name = os.path.join(repo_dir, 'files', 'insumos_bravaaikon.json')
+file_name = os.path.join(repo_dir, 'files', 'insumos_thebridge.json')
 
 # Carregar o JSON e transformar em DataFrame
 data = pd.read_json(file_name)  # Usar pd.read_json ao invés de load_json
