@@ -27,7 +27,7 @@ df_expandir_installments = df_colunas_remover.explode('installments')
 # Verificar se a coluna 'installments' existe e contém dados
 if 'installments' in df_expandir_installments.columns:
     df_expandir_installments['disbursementDays'] = df_expandir_installments['installments'].apply(lambda x: x['disbursementDays'] if pd.notnull(x) and 'disbursementDays' in x else None)
-    df_expandir_installments['disbursementPercent'] = df_expandir_installments['installments'].apply(lambda x: x['disbursementDays'] if pd.notnull(x) and 'disbursementPercent' in x else None)
+    df_expandir_installments['disbursementPercent'] = df_expandir_installments['installments'].apply(lambda x: x['disbursementPercent'] if pd.notnull(x) and 'disbursementPercent' in x else None)
 else:
     df_expandir_installments['disbursementDays'] = None
     df_expandir_installments['disbursementPercent'] = None
