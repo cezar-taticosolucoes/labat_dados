@@ -1,5 +1,6 @@
 # Importar Bibliotecas
 import pandas as pd
+from datetime import datetime
 import json
 from IPython.display import display
 import os
@@ -205,6 +206,14 @@ else:
 
 # Converta a coluna de data para string no formato desejado
 df_insumos_final['date'] = df_insumos_final['date'].dt.strftime('%Y-%m-%d')
+
+# Obter a data e hora atual
+data_atualizacao = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+# Adicionar a coluna 'DataHoraAtualizacao' com o valor da data e hora atual
+df_final_pandas['DataHoraAtualizacao'] = data_atualizacao
+df_final_aprop_expanded['DataHoraAtualizacao'] = data_atualizacao
+df_insumos_final['DataHoraAtualizacao'] = data_atualizacao
 
 # Caminho para salvar os arquivos JSON na pasta 'db'
 output_file_name_orc = os.path.join(repo_dir, 'db', 'db_insumos_orcados_thebridge.json')

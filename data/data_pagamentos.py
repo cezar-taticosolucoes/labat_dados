@@ -1,5 +1,6 @@
 # Importar Bibliotecas
 import pandas as pd
+from datetime import datetime
 import json
 from IPython.display import display
 import os
@@ -260,6 +261,13 @@ df_final_aprop['rate'] = df_final_aprop['rate']/100
 # Converta a coluna de data para string no formato desejado
 df_final_aprop['dueDate'] = df_final_aprop['dueDate'].dt.strftime('%Y-%m-%d')
 df_final_aprop['paymentDate'] = df_final_aprop['paymentDate'].dt.strftime('%Y-%m-%d')
+
+# Obter a data e hora atual
+data_atualizacao = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+# Adicionar a coluna 'DataHoraAtualizacao' com o valor da data e hora atual
+df_final_pagamentos['DataHoraAtualizacao'] = data_atualizacao
+df_final_aprop['DataHoraAtualizacao'] = data_atualizacao
 
 # Caminho para salvar os arquivos JSON na pasta 'db'
 output_file_name = os.path.join(repo_dir, 'db', 'db_pagamentos.json')

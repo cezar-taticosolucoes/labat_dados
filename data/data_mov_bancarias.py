@@ -1,5 +1,6 @@
 # Importar Bibliotecas
 import pandas as pd
+from datetime import datetime
 import json
 from IPython.display import display
 import os
@@ -116,6 +117,13 @@ df_final_pandas_aprop = df_expandir_aprop.drop(columns=['financialCategories', '
 # Filtrar empresas
 company_ids_aprop = [66] # Filtrar todas as empresas que deseja retornar os dados
 df_final_pandas_aprop = df_final_pandas_aprop[df_final_pandas_aprop['companyId'].isin(company_ids_aprop)]
+
+# Obter a data e hora atual
+data_atualizacao = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+# Adicionar a coluna 'DataHoraAtualizacao' com o valor da data e hora atual
+df_final_pandas['DataHoraAtualizacao'] = data_atualizacao
+df_final_pandas_aprop['DataHoraAtualizacao'] = data_atualizacao
 
 # Caminho para salvar os arquivos JSON na pasta 'db'
 output_file_name = os.path.join(repo_dir, 'db', 'db_mov_bancarias.json')

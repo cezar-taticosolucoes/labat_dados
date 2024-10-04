@@ -1,5 +1,6 @@
 # Importar Bibliotecas
 import pandas as pd
+from datetime import datetime
 import json
 from IPython.display import display
 import os
@@ -81,6 +82,12 @@ dtype_dict = {
 
 # Aplicar os tipos de dados ao DataFrame
 df_final = filtered_df.astype(dtype_dict)
+
+# Obter a data e hora atual
+data_atualizacao = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+# Adicionar a coluna 'DataHoraAtualizacao' com o valor da data e hora atual
+df_final['DataHoraAtualizacao'] = data_atualizacao
 
 # Caminho para salvar o novo arquivo JSON na pasta 'data'
 output_file_name = os.path.join(repo_dir, 'db', 'db_orcamentos.json')

@@ -1,5 +1,6 @@
 # Importar Bibliotecas
 import pandas as pd
+from datetime import datetime
 import json
 from IPython.display import display
 import os
@@ -160,6 +161,12 @@ dtype_dict = {
 df_final = df_company.astype(dtype_dict)
 df_final= df_final.drop(columns=['receiptsCategories'])
 df_final['financialCategoryRate'] = df_final['financialCategoryRate']/100
+
+# Obter a data e hora atual
+data_atualizacao = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+# Adicionar a coluna 'DataHoraAtualizacao' com o valor da data e hora atual
+df_final['DataHoraAtualizacao'] = data_atualizacao
 
 # Converta a coluna de data para string no formato desejado
 df_final['dueDate'] = df_final['dueDate'].dt.strftime('%Y-%m-%d')
