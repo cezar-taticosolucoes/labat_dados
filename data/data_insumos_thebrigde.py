@@ -6,7 +6,7 @@ from IPython.display import display
 import os
 
 # Definir o caminho correto para o arquivo JSON na pasta 'files'
-# Obter o caminho absoluto do diretório raiz do repositório (AIKON_BANCO_DADOS)
+# Obter o caminho absoluto do diretório raiz do repositório 
 repo_dir = os.path.dirname(os.path.abspath(''))  # 'file' removido, usará o diretório de execução atual
 file_name = os.path.join(repo_dir, 'files', 'insumos_thebridge.json')
 
